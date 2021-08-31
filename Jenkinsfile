@@ -2,9 +2,9 @@ pipeline {
     agent none
     stages {
         stage('build') {
-            agent { docker { image 'php:7.2' } }
+            agent any
             steps {
-                sh 'php --version'
+                sh 'phpunit tests/'
             }
         }
         stage('task-2') {
