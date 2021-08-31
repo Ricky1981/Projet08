@@ -1,16 +1,16 @@
 pipeline {
     agent none
     stages {
-        stage('build') {
+        stage('Pre-Build') {
             agent any
             steps {
                 sh 'phpunit tests/'
             }
         }
-        stage('task-2') {
-            agent any
+        stage('Build PHP') {
+            agent { docker { image 'httpd:2.4' } }
             steps {
-                sh 'echo "starting executing tests..."'
+                sh 'COPY * /usr/local/apache2/htdocs/'
             }
         }
         stage('task-3') {
