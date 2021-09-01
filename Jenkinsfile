@@ -7,10 +7,9 @@ pipeline {
                 sh 'phpunit tests/'
             }
         }
-        node {
-            stage('Build PHP') {
-                docker.build("prestashop", "./package/phpApache")
-            }
+        stage('Build PHP') {
+            
+            docker.build("prestashop", "./package/phpApache")
         }
         stage('task-3') {
             agent any
