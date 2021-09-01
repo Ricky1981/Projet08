@@ -16,12 +16,15 @@ pipeline {
                 dir ('package/mariadb/') {
                   sh 'docker build -t mariadbpresta .'
                 }
+                dir ('package/') {
+                  sh 'docker-compose up'
+                }
             }
         }
-        stage('task-3') {
+        stage('Test') {
             agent any
             steps {
-                sh 'echo "starting packaging project..."'
+                sh 'echo "On est pas mal..."'
             }
         }
     }
