@@ -10,9 +10,9 @@ pipeline {
         stage('Build') {
             agent any
             steps {
-                dir ('package/phpApache/') {
-                  sh 'docker build -t prestashop .'
-                }
+                // dir ('package/phpApache/') {
+                  sh 'docker build -t prestashop package/phpApache/'
+                // }
                 dir ('package/mariadb/') {
                   sh 'docker build -t mariadbpresta .'
                 }
