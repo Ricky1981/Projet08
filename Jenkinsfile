@@ -7,11 +7,14 @@ pipeline {
                 sh 'phpunit tests/'
             }
         }
-        stage('Build PHP') {
+        stage('Build') {
             agent any
             steps {
                 dir ('package/phpApache/') {
                   sh 'docker build -t prestashop .'
+                }
+                dir ('package/mariadb/') {
+                  sh 'docker build -t mariadbpresta .'
                 }
             }
         }
