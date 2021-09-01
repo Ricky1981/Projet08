@@ -8,9 +8,9 @@ pipeline {
             }
         }
         stage('Build PHP') {
-            agent { docker { image 'httpd:2.4' } }
+            agent any
             steps {
-                sh 'COPY * /usr/local/apache2/htdocs/'
+                def testImage = docker.build("prestashop", "./package/phpApache")
             }
         }
         stage('task-3') {

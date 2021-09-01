@@ -1,0 +1,30 @@
+# https://docs.docker.com/compose/compose-file/compose-versioning/
+# Nous utilisons la version 3.8 car notre moteur Docker est supérieur à la version 19.03.0+
+version: "3.8"
+# Dans cette version, penser à modifier les variables si besoin dans le fichier .env
+services: 
+  db:
+    image: mariadbpresta
+    container_name: mariadbpresta
+    restart: always
+    networks:
+      projet08:
+        ipv4_address: ${IPMARIADB}
+    
+  prestashop:
+    image: 'prestashop'
+    container_name: prestashop
+    restart: always
+    ports:
+      - '8083:80'    
+    networks:
+      projet08:
+        ipv4_address: ${IPPRESTASHOP}
+      
+networks:
+  projet08:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: ${SUBNET}
+         gateway: ${GATEWAY}
