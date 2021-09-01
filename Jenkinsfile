@@ -17,7 +17,8 @@ pipeline {
                   sh 'docker build -t mariadbpresta .'
                 }
                 dir ('package/') {
-                  sh 'docker-compose up'
+                  // On ajoute le -d pour le mode detached car sinon jenkins ne s'arrete jamais...  
+                  sh 'docker-compose up -d'
                 }
             }
         }

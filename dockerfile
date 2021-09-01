@@ -17,7 +17,7 @@ WORKDIR /var/www/html
 
 COPY --chown=www-data:www-data . .
 
-RUN sed -i 's/\(192\.168\.10\.8\)/172\.10\.0\.3/' app/config/parameters.php
+RUN sed -i 's/\(192\.168\.10\.8\)/172\.18\.0\.3/' app/config/parameters.php
 
 # RUN mkdir ./var/logs && chmod -R 777 ./var/logs
 
