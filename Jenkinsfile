@@ -10,7 +10,7 @@ pipeline {
         stage('Build PHP') {
             agent any
             steps {
-                def testImage = docker.build("prestashop", "./package/phpApache")
+                docker.build("prestashop", "./package/phpApache")
             }
         }
         stage('task-3') {
