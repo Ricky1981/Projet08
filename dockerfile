@@ -15,7 +15,7 @@ RUN a2enmod rewrite
 
 WORKDIR /var/www/html
 
-COPY --chown=www-data:www-data /var/lib/jenkins/workspace/Projet08_main/ .
+COPY --chown=www-data:www-data . .
 
 # RUN mkdir ./var/logs && chmod -R 777 ./var/logs
 
