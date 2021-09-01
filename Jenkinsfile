@@ -8,8 +8,12 @@ pipeline {
             }
         }
         stage('Build PHP') {
-            
-            docker.build("prestashop", "./package/phpApache")
+            agent any
+            steps {
+                dir ('package/phpApache/') {
+                  sh 'docker build -t prestashop .'
+                }
+            }
         }
         stage('task-3') {
             agent any
