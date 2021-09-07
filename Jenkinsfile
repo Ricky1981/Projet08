@@ -25,7 +25,7 @@ pipeline {
         stage('Test') {
             agent any
             steps {
-                sh 'echo "On est pas mal..."'
+                sh 'python3 test_projet08.py'
             }
         }
     }
