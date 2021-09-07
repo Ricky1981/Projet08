@@ -3,9 +3,7 @@ FROM php:7.3-apache
 RUN apt-get update && \
 apt-get install -qy zip libzip-dev libpng-dev && \
 docker-php-ext-install zip gd pdo pdo_mysql
-# && \
-# docker-php-ext-install gd && \
-# docker-php-ext-install pdo pdo_mysql
+
 
 RUN apt-get -qy install libicu-dev && \
 docker-php-ext-configure intl && \
