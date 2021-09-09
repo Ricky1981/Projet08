@@ -25,7 +25,7 @@ pipeline {
         stage('Test') {
             agent any
             steps {
-                sh 'docker exec -i mariadbpresta bash < ./pingmaria.sh'
+                sh 'docker exec -i mariadbpresta bash < package/pingmaria.sh'
                 timeout(time: 3, unit: 'SECONDS') {
                     sh 'pytest test_projet08.py'
                 }
