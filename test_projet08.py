@@ -27,7 +27,7 @@ class TestTest():
     self.driver.find_element(By.NAME, "email").click()
     self.driver.find_element(By.NAME, "email").send_keys("test@test.fr")
     # self.driver.find_element(By.NAME, "password").click()
-    # self.driver.find_element(By.NAME, "password").send_keys("Jfm2000m!")
+    # self.driver.find_element(By.NAME, "password").send_keys("test")
     # self.driver.find_element(By.ID, "submit-login").click()
     # self.driver.find_element(By.CSS_SELECTOR, "#identity-link .material-icons").click()
     # self.driver.find_element(By.CSS_SELECTOR, ".logout").click()
