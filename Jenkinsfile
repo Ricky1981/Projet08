@@ -29,7 +29,9 @@ pipeline {
                 timeout(time: 3, unit: 'MINUTES') {
                     sh 'pytest test_projet08.py'
                 }
-                sh 'docker-compose down'
+                dir ('package/') {
+                  sh 'docker-compose down'
+                }
             }
         }
     }
