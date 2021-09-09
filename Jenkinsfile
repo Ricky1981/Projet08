@@ -26,7 +26,7 @@ pipeline {
             agent any
             steps {
                 sh 'docker exec -i mariadbpresta bash < ./pingmaria.sh'
-                timeout(time: 3, unit: 'SECOND') {
+                timeout(time: 3, unit: 'SECONDS') {
                     sh 'pytest test_projet08.py'
                 }
                 sh 'docker-compose down'
