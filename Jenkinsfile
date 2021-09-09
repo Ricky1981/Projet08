@@ -25,10 +25,11 @@ pipeline {
         stage('Test') {
             agent any
             steps {
-                sh '''
-                    pytest test_projet08.py
-                    docker-compose down
-                '''
+                sh 'docker exec -i mariadbpresta bash < ./pingmaria.sh'
+                timeout(time: 3, unit: 'SECOND') {
+                    sh 'pytest test_projet08.py'
+                }
+                sh 'docker-compose down'
             }
         }
     }
