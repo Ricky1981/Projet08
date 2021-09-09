@@ -25,7 +25,7 @@ pipeline {
         stage('Test') {
             agent any
             steps {
-                sh 'python3 test_projet08.py'
+                sh 'pytest test_projet08.py'
             }
         }
     }
