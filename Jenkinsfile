@@ -25,7 +25,10 @@ pipeline {
         stage('Test') {
             agent any
             steps {
-                sh 'pytest test_projet08.py'
+                sh '''
+                    pytest test_projet08.py
+                    docker-compose down
+                '''
             }
         }
     }
