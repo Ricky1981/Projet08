@@ -25,7 +25,10 @@ pipeline {
         stage('Test') {
             agent any
             steps {
-                sh 'docker exec -i mariadbpresta bash < package/pingmaria.sh'
+                '''
+                    docker exec -i mariadbpresta bash < package/pingmaria.sh'
+                    pip3 install pytest-html 
+                '''
                 timeout(time: 3, unit: 'MINUTES') {
                     sh 'pytest --html=report.html --self-contained-html test_projet08.py'
                 }
