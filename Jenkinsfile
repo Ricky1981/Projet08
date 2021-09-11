@@ -27,12 +27,22 @@ pipeline {
             steps {
                 sh 'docker exec -i mariadbpresta bash < package/pingmaria.sh'
                 timeout(time: 3, unit: 'MINUTES') {
-                    sh 'pytest test_projet08.py'
+                    sh 'pytest --html=report.html --self-contained-html test_projet08.py'
                 }
-                dir ('package/') {
-                  sh 'docker-compose down'
-                }
+                // dir ('package/') {
+                //   sh 'docker-compose down'
+                // }
             }
+        }
+        stage('PublishReport') {
+            publishHTML (target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: 'coverage',
+            reportFiles: 'report.html',
+            reportName: "RCov Report"
+            ])
         }
     }
 }
