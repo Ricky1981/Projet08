@@ -35,14 +35,16 @@ pipeline {
             }
         }
         stage('PublishReport') {
-            publishHTML (target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportDir: 'coverage',
-            reportFiles: 'report.html',
-            reportName: "RCov Report"
-            ])
+            steps {
+                publishHTML (target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: false,
+                keepAll: true,
+                reportDir: 'coverage',
+                reportFiles: 'report.html',
+                reportName: "RCov Report"
+                ])
+            }
         }
     }
 }
