@@ -25,7 +25,7 @@ pipeline {
         stage('Test') {
             agent any
             steps {
-                '''
+                sh '''
                     docker exec -i mariadbpresta bash < package/pingmaria.sh'
                     pip3 install pytest-html 
                 '''
