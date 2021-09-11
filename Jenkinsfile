@@ -26,7 +26,7 @@ pipeline {
             agent any
             steps {
                 sh '''
-                    docker exec -i mariadbpresta bash < package/pingmaria.sh'
+                    docker exec -i mariadbpresta bash < package/pingmaria.sh
                     echo "OK on est pas mal"
                 '''
                 timeout(time: 3, unit: 'MINUTES') {
