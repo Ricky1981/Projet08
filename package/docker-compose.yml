@@ -12,8 +12,8 @@ services:
         ipv4_address: ${IPMARIADB}
     
   prestashop:
-    image: 'prestashop'
-    container_name: prestashop
+    image: prestashopsry
+    container_name: prestashopsry
     restart: always
     ports:
       - '8083:80'    

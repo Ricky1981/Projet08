@@ -11,7 +11,7 @@ pipeline {
             agent any
             steps {
                 // dir ('package/phpApache/') {
-                  sh 'docker build -t prestashop .'
+                  sh 'docker build -t prestashopsry .'
                 // }
                 dir ('package/mariadb/') {
                   sh 'docker build -t mariadbpresta .'
@@ -34,17 +34,17 @@ pipeline {
                 // }
             }
         }
-        stage('PublishReport') {
-            steps {
-                publishHTML (target: [
-                allowMissing: false,
-                alwaysLinkToLastBuild: false,
-                keepAll: true,
-                reportDir: 'coverage',
-                reportFiles: 'report.html',
-                reportName: "RCov Report"
-                ])
-            }
-        }
+        // stage('PublishReport') {
+        //     steps {
+        //         publishHTML (target: [
+        //         allowMissing: false,
+        //         alwaysLinkToLastBuild: false,
+        //         keepAll: true,
+        //         reportDir: 'coverage',
+        //         reportFiles: 'report.html',
+        //         reportName: "RCov Report"
+        //         ])
+        //     }
+        // }
     }
 }
