@@ -45,7 +45,7 @@ pipeline {
     // agent any
     post {        
         always {
-            junit 'build/reports/**/*.xml'
+            junit 'report.xml'
         }
     }
         // stage('PublishReport') {
