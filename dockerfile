@@ -14,7 +14,7 @@ RUN a2enmod rewrite
 WORKDIR /var/www/html
 
 # Je copie mon code placé dans la racine dans mon "WORKDIR"
-COPY --chown=www-data:www-data . .
+COPY . .
 
 # Je modifie le fichier parameters.php du conteneur afin qu'il contienne l'IP que je souhaite
 RUN sed -i 's/\(192\.168\.10\.8\)/172\.18\.0\.3/' app/config/parameters.php
