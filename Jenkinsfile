@@ -1,14 +1,14 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Pre-Build') {
-            agent any
+            // agent any
             steps {
                 sh 'phpunit tests/'
             }
         }
         stage('Build') {
-            agent any
+            // agent any
             steps {
                 // dir ('package/phpApache/') {
                   sh 'docker build -t prestashopsry .'
@@ -23,7 +23,7 @@ pipeline {
             }
         }
         stage('Test') {
-            agent any
+            // agent any
             steps {
                 sh '''
                     docker exec -i mariadbpresta bash < package/pingmaria.sh
@@ -42,9 +42,8 @@ pipeline {
         }
         
     }
-    agent any
-    post {
-        
+    // agent any
+    post {        
         always {
             junit 'build/reports/**/*.xml'
         }
