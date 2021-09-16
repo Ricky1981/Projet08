@@ -43,6 +43,7 @@ pipeline {
         
     }
     post {
+        agent any
         always {
             junit 'build/reports/**/*.xml'
         }
