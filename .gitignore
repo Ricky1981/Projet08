@@ -76,3 +76,6 @@ prestashop_1.7.7.7.zip
 INSTALL.txt
 Install_PrestaShop.html
 
+var/cache/prod/smarty/*
+__pycache__/*
+report.*

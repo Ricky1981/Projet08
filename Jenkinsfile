@@ -31,8 +31,8 @@ pipeline {
                 '''
                 timeout(time: 3, unit: 'MINUTES') {
                     sh '''
-                        pip3 install pytest-html
-                        pytest --html=report.html --self-contained-html test_projet08.py
+                        pip3 install junit-xml
+                        pytest --junitxml="report.xml" test_projet08.py
                     '''
                 }
                 // dir ('package/') {
@@ -40,6 +40,11 @@ pipeline {
                 // }
             }
         }
+        post {
+        always {
+            junit 'build/reports/**/*.xml'
+        }
+    }
         // stage('PublishReport') {
         //     steps {
         //         publishHTML (target: [
