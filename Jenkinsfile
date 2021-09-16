@@ -30,7 +30,10 @@ pipeline {
                     echo "OK on est pas mal"
                 '''
                 timeout(time: 3, unit: 'MINUTES') {
-                    sh 'pytest --html=report.html --self-contained-html test_projet08.py'
+                    sh '''
+                        pip3 install pytest-html
+                        pytest --html=report.html --self-contained-html test_projet08.py
+                    '''
                 }
                 // dir ('package/') {
                 //   sh 'docker-compose down'
