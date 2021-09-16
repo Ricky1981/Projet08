@@ -79,3 +79,4 @@ Install_PrestaShop.html
 var/cache/prod/smarty/*
 __pycache__/*
 report.*
+var/logs/*
