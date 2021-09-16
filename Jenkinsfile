@@ -41,15 +41,16 @@ pipeline {
             }
         }
         
-    }
-    // agent any
-    post {        
-        always {
-            junit 'report.xml'
-        }
-    }
-        // stage('PublishReport') {
-        //     steps {
+    // }
+    // // agent any
+    // post {        
+    //     always {
+    //         junit 'report.xml'
+    //     }
+    // }
+
+        stage('PublishReport') {
+            steps {
         //         publishHTML (target: [
         //         allowMissing: false,
         //         alwaysLinkToLastBuild: false,
@@ -58,7 +59,8 @@ pipeline {
         //         reportFiles: 'report.html',
         //         reportName: "RCov Report"
         //         ])
-        //     }
-        // }
+                junit 'report.xml'
+            }
+        }
     
 }
