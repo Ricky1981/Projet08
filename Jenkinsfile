@@ -60,9 +60,9 @@ pipeline {
         //         reportName: "RCov Report"
         //         ])
                 junit 'report.xml'
-                dir ('package/') {
-                  sh 'docker-compose down'
-                }
+                // dir ('package/') {
+                //   sh 'docker-compose down'
+                // }
             }
         }
     }
