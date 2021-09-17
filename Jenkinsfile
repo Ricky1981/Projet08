@@ -35,9 +35,9 @@ pipeline {
                         pytest --junitxml="report.xml" test_projet08.py
                     '''
                 }
-                // dir ('package/') {
-                //   sh 'docker-compose down'
-                // }
+                dir ('package/') {
+                  sh 'docker-compose down'
+                }
             }
         }
         
