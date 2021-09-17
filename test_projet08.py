@@ -42,10 +42,10 @@ class TestTest():
     self.driver.find_element(By.NAME, "birthday").click()
     self.driver.find_element(By.NAME, "customer_privacy").click()
     self.driver.find_element(By.NAME, "psgdpr").click()
-  def test_soumissionform(self):
-    self.driver.find_element(By.CSS_SELECTOR, ".form-control-submit").click()
-  def test_logout(self):
-    self.driver.find_element(By.CSS_SELECTOR, ".logout").click()
+  # def test_soumissionform(self):
+  #   self.driver.find_element(By.CSS_SELECTOR, ".form-control-submit").click()
+  # def test_logout(self):
+  #   self.driver.find_element(By.CSS_SELECTOR, ".logout").click()
 
 
 
