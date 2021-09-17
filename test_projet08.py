@@ -24,8 +24,26 @@ class TestTest():
   def test_test(self):
     self.driver.get("http://192.168.10.8:8083/index.php")
     self.driver.find_element(By.CSS_SELECTOR, "a > .hidden-sm-down").click()
+    # self.driver.find_element(By.NAME, "email").click()
+    # self.driver.find_element(By.NAME, "email").send_keys("test@test.fr")
+    self.driver.find_element(By.LINK_TEXT, "Pas de compte ? Créez-en un").click()
+    self.driver.find_element(By.NAME, "id_gender").click()
+    self.driver.find_element(By.NAME, "firstname").click()
+    self.driver.find_element(By.NAME, "firstname").send_keys("test")
+    self.driver.find_element(By.NAME, "lastname").click()
+    self.driver.find_element(By.NAME, "lastname").send_keys("test")
     self.driver.find_element(By.NAME, "email").click()
     self.driver.find_element(By.NAME, "email").send_keys("test@test.fr")
+    self.driver.find_element(By.NAME, "password").click()
+    self.driver.find_element(By.NAME, "password").send_keys("test123!")
+    self.driver.find_element(By.NAME, "birthday").click()
+    self.driver.find_element(By.NAME, "customer_privacy").click()
+    self.driver.find_element(By.NAME, "psgdpr").click()
+    self.driver.find_element(By.CSS_SELECTOR, ".form-control-submit").click()
+    self.driver.find_element(By.CSS_SELECTOR, ".logout").click()
+
+
+
     # self.driver.find_element(By.NAME, "password").click()
     # self.driver.find_element(By.NAME, "password").send_keys("test")
     # self.driver.find_element(By.ID, "submit-login").click()
