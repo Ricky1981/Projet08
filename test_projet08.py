@@ -21,11 +21,14 @@ class TestTest():
   def teardown_method(self, method):
     self.driver.quit()
   
-  def test_test(self):
+  def test_connexion(self):
     self.driver.get("http://192.168.10.8:8083/index.php")
     self.driver.find_element(By.CSS_SELECTOR, "a > .hidden-sm-down").click()
     # self.driver.find_element(By.NAME, "email").click()
     # self.driver.find_element(By.NAME, "email").send_keys("test@test.fr")
+  def test_creationcompte(self):
+    self.driver.get("http://192.168.10.8:8083/index.php")
+    self.driver.find_element(By.CSS_SELECTOR, "a > .hidden-sm-down").click()
     self.driver.find_element(By.LINK_TEXT, "Pas de compte ? Créez-en un").click()
     self.driver.find_element(By.NAME, "id_gender").click()
     self.driver.find_element(By.NAME, "firstname").click()
@@ -39,7 +42,9 @@ class TestTest():
     self.driver.find_element(By.NAME, "birthday").click()
     self.driver.find_element(By.NAME, "customer_privacy").click()
     self.driver.find_element(By.NAME, "psgdpr").click()
+  def test_soumissionform(self):
     self.driver.find_element(By.CSS_SELECTOR, ".form-control-submit").click()
+  def test_logout(self):
     self.driver.find_element(By.CSS_SELECTOR, ".logout").click()
 
 
