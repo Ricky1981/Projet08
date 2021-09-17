@@ -36,7 +36,11 @@ pipeline {
                     '''
                 }
                 dir ('package/') {
-                  sh 'docker-compose down'
+                    sh '''
+                        docker-compose down
+                        docker image prune -f
+                        docker volume prune -f
+                    '''
                 }
             }
         }
